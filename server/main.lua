@@ -9,7 +9,7 @@ local function getJobs(playerId)
     if Config.jobSystem == "esx" then
         return { [1] = ESX.GetPlayerFromId(playerId).getJob().name }
     elseif Config.jobSystem == "br_multiJob" then
-        return exports["br_multiJob"]:getJobs()
+        return exports["br_multiJob"]:getJobs(playerId)
     end
 end
 
