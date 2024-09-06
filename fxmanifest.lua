@@ -6,7 +6,7 @@ author "Brodino"
 version "dev"
 description "A racing script that I would actually use"
 
-shared_scripts { "@oxmysql/lib/MySQL.lua", "config.lua", }
+shared_scripts { "@oxmysql/lib/MySQL.lua", "config.lua", "shared/utils.lua", "shared/locales/*", }
 client_scripts { "client/*", }
 server_scripts { "server/*", }
 
