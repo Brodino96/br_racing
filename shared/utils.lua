@@ -1,5 +1,5 @@
-Locales = {}
+Locale = {}
 
 function L(hash)
-    return Locales[Config.locale][hash]
+    return Locale[Config.locale][hash]
 end
