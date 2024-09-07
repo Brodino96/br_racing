@@ -16,7 +16,7 @@ local function getJobs(playerId)
     end
 end
 
-function CanAccess(playerId)
+local function canAccess(playerId)
     local jobs = getJobs(playerId)
     for i = 1, #jobs do
         for k = 1, #Config.jobs do
@@ -26,6 +26,15 @@ function CanAccess(playerId)
         end
     end
     return false
+end
+
+function UpdateRaceList()
+    local newList = GetRacesInfo()
+    for i = 1, #HasRacesList do
+        CreateThread(function ()
+            TriggerClientEvent("br_racing:updateRaceList", HasRacesList[i], newList)
+        end)
+    end
 end
 
 ---------------------- # ---------------------- # ---------------------- # ----------------------
@@ -43,7 +52,7 @@ end)
 ---------------------- # ---------------------- # ---------------------- # ----------------------
 
 RegisterCommand("racemanager", function (source, args)
-    if not CanAccess(source) then
+    if not canAccess(source) then
         return TriggerClientEvent("ox_lib:notify", source, { type = "error", title = L("command:cannot_access")})
     end
 
