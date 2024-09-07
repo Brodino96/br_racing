@@ -3,7 +3,10 @@
 ESX = exports["es_extended"]:getSharedObject()
 
 ---------------------- # ---------------------- # ---------------------- # ----------------------
--- Functions
+
+HasRacesList = {}
+
+---------------------- # ---------------------- # ---------------------- # ----------------------
 
 local function getJobs(playerId)
     if Config.jobSystem == "esx" then
