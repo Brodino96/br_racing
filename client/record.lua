@@ -34,8 +34,6 @@ function StartTrackRecording()
         while recordInProgress do
             Wait(0)
 
-            local position = #track + 1
-
             -- Press [ENTER]
             if IsControlJustPressed(0, 18) then
                 addToTrack(GetEntityCoords(PlayerPedId()))
