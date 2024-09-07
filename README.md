@@ -1,2 +1,2 @@
 # br_racing
-A racing script for FiveM that I would actually use
+An open source racing script because all the cool ones are paid
