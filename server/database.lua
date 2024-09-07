@@ -4,7 +4,7 @@ function GetRacesInfo()
     return MySQL.query.await("SELECT * FROM `br_racing` WHERE `public` = ?", { 1 })
 end
 
-function AddNewRace(race)
+function AddNewRace(race, id)
     local query = "INSERT INTO `br_racing` (racename, identifier, owner, public, track) VALUES (?, ?, ?, ?, ?)"
     local response = MySQL.insert.await(query, {
         race.racename, ESX.GetPlayerFromId(id).getIdentifier(), race.owner, race.public, json.encode(race.track)
