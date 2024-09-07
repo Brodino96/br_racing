@@ -26,7 +26,6 @@ function CanAccess(playerId)
 end
 
 ---------------------- # ---------------------- # ---------------------- # ----------------------
--- Commands
 
 RegisterCommand("racemanager", function (source, args)
     if not CanAccess(source) then
