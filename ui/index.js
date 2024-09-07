@@ -8,7 +8,7 @@ window.addEventListener("message", function (event) {
 })
 
 function openPanel(list) {
-    list.array.forEach(selector => {
+    list.forEach(selector => {
         // Create html button with info
         // Should contain: racename, owner, number of waypoints
     });
