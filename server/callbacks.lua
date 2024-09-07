@@ -1,7 +1,7 @@
 ---------------------- # ---------------------- # ---------------------- # ----------------------
 
 lib.callback.register("br_racing:getRaces", function (source)
-    HasRacesList[tonumber(source)] = true
+    table.insert(HasRacesList, source)
     return GetRacesInfo()
 end)
 
