@@ -4,8 +4,16 @@ function GetRacesInfo()
     return MySQL.query.await("SELECT * FROM `br_racing` WHERE `public` = ?", { 1 })
 end
 
-function GetRaceTrack(id)
-    return MySQL.query.await("SELECT `track` FROM `br_racing` WHERE `raceid` = ?", { id })
+function AddNewRace(race)
+    local query = "INSERT INTO `br_racing` (racename, identifier, owner, public, track) VALUES (?, ?, ?, ?, ?)"
+    local response = MySQL.insert.await(query, {
+        race.racename, ESX.GetPlayerFromId(id).getIdentifier(), race.owner, race.public, json.encode(race.track)
+    })
+    if response then
+        Debug.success("Race uploaded")
+    else
+        Debug.error("Race couldn't be uploaded")
+    end
 end
 
 ---------------------- # ---------------------- # ---------------------- # ----------------------
@@ -24,7 +32,7 @@ AddEventHandler("onResourceStart", function (rName)
         `owner` VARCHAR(50),
         `public` TINYINT(1),
         `track` LONGTEXT NOT NULL,
-        `leaderboard` LONGTEXT NOT NULL,
+        `leaderboard` LONGTEXT,
         PRIMARY KEY (`raceid`))
     ]])
 
