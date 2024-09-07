@@ -1,5 +1,15 @@
 ---------------------- # ---------------------- # ---------------------- # ----------------------
 
+function GetRacesInfo()
+    return MySQL.query.await("SELECT `raceid`, `racename`, `owner`, `public` FROM `br_racing`")
+end
+
+function GetRaceTrack(id)
+    return MySQL.query.await("SELECT `track` FROM `br_racing` WHERE `raceid` = ?", { id })    
+end
+
+---------------------- # ---------------------- # ---------------------- # ----------------------
+
 RegisterNetEvent("onResourceStart")
 AddEventHandler("onResourceStart", function (rName)
     if rName == GetCurrentResourceName() then
@@ -10,6 +20,7 @@ AddEventHandler("onResourceStart", function (rName)
         CREATE TABLE IF NOT EXISTS `br_racing` (
         `raceid` INT NOT NULL AUTO_INCREMENT,
         `racename` VARCHAR(50),
+        `identifier` VARCHAR(46),
         `owner` VARCHAR(50),
         `public` TINYINT(1),
         `track` LONGTEXT NOT NULL,
