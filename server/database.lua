@@ -16,6 +16,15 @@ function AddNewRace(race, id)
     end
 end
 
+function DeleteRace(id)
+    local response = MySQL.rawExecute.await("DELETE FROM `br_racing` WHERE `raceid` = ?", { id })
+    if response then
+        Debug.success("Race removed")
+    else
+        Debug.error("Race couldn't be deleted")
+    end
+end
+
 ---------------------- # ---------------------- # ---------------------- # ----------------------
 
 RegisterNetEvent("onResourceStart")
