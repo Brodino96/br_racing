@@ -20,7 +20,7 @@ end
 
 RegisterNetEvent("onResourceStart")
 AddEventHandler("onResourceStart", function (rName)
-    if rName == GetCurrentResourceName() then
+    if rName ~= GetCurrentResourceName() then
         return
     end
 
