@@ -30,6 +30,18 @@ end
 
 ---------------------- # ---------------------- # ---------------------- # ----------------------
 
+RegisterNetEvent("br_racing:addNewRace") -- Must be triggered from client
+AddEventHandler("br_racing:addNewRace", function (race)
+    AddNewRace(race, source)
+end)
+
+RegisterNetEvent("br_racing:deleteRace")
+AddEventHandler("br_racing:deleteRace", function (raceid)
+    DeleteRace(raceid)
+end)
+
+---------------------- # ---------------------- # ---------------------- # ----------------------
+
 RegisterCommand("racemanager", function (source, args)
     if not CanAccess(source) then
         return TriggerClientEvent("ox_lib:notify", source, { type = "error", title = L("command:cannot_access")})
