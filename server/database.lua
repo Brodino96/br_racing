@@ -1,15 +1,7 @@
 ---------------------- # ---------------------- # ---------------------- # ----------------------
 
 function GetRacesInfo()
-    local response = MySQL.query.await("SELECT `raceid`, `racename`, `owner`, `public` FROM `br_racing`")
-    local arr = {}
-
-    for i = 1, #response do
-        if response[i].public then
-            arr[#arr+1] = response[i]
-        end
-    end
-    return arr
+    return MySQL.query.await("SELECT * FROM `br_racing` WHERE `public` = ?", { 1 })
 end
 
 function GetRaceTrack(id)
