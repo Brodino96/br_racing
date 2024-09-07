@@ -17,9 +17,9 @@ AddEventHandler("onResourceStart", function (rName)
     ]])
 
     if response then
-        return print("^0[^2INFO^0] Database connection established")
+        return print("[^2SUCCESS^0] Database connection established")
     end
-    return print("^0[^2ERROR^0] Database connection failed")
+    return print("[^1ERROR^0] Database connection failed")
 end)
 
 ---------------------- # ---------------------- # ---------------------- # ----------------------
