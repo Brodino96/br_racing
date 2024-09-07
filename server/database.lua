@@ -10,6 +10,7 @@ function AddNewRace(race, id)
         race.racename, ESX.GetPlayerFromId(id).getIdentifier(), race.owner, race.public, json.encode(race.track)
     })
     if response then
+        UpdateRaceList()
         Debug.success("Race uploaded")
     else
         Debug.error("Race couldn't be uploaded")
@@ -19,6 +20,7 @@ end
 function DeleteRace(id)
     local response = MySQL.rawExecute.await("DELETE FROM `br_racing` WHERE `raceid` = ?", { id })
     if response then
+        UpdateRaceList()
         Debug.success("Race removed")
     else
         Debug.error("Race couldn't be deleted")
