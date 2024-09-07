@@ -32,6 +32,7 @@ AddEventHandler("onResourceStart", function (rName)
         `owner` VARCHAR(50),
         `public` TINYINT(1),
         `track` LONGTEXT NOT NULL,
+        `leaderboard` LONGTEXT NOT NULL,
         PRIMARY KEY (`raceid`))
     ]])
 
