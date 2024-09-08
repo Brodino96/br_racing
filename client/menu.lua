@@ -34,6 +34,10 @@ end)
 
 -- TODO: Load races
 
+RegisterNUICallback("startRace", function (body, cb)
+    TriggerServerEvent("br_racing:startRace")
+end)
+
 ---------------------- # ---------------------- # ---------------------- # ----------------------
 
 RegisterNetEvent("br_races:openPanel")
