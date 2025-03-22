@@ -1,0 +1,20 @@
+{
+  "name": "fivem_template_full",
+  "scripts": {
+    "build": "rm -rf dist && tsc --isolatedModules -p tsconfig.json --skipLibCheck && vite build && bunx rolldown -c",
+    "dev": "vite",
+    "test": "vite build & bunx rolldown -c"
+  },
+  "dependencies": {
+    "@citizenfx/client": "^2.0.13686-1",
+    "@citizenfx/server": "^2.0.13686-1",
+    "esx.js": "^1.1.8"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "rolldown": "^1.0.0-beta.6",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.2"
+  },
+  "type": "module"
+}

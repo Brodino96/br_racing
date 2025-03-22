@@ -1,0 +1,1 @@
+# fivem_template_full
